@@ -2,11 +2,27 @@
 
 ## Project Overview
 
-An end-to-end data analytics project that analyzes Saudi Arabia real estate listings to identify market trends, pricing patterns, location differences, and property distribution.
+An end-to-end data analytics project that analyzes historical Saudi Arabia real estate listings to identify market trends, pricing patterns, location differences, and property distribution.
 
 The project demonstrates a complete analytics workflow:
 
 **Data Cleaning → SQL Analysis → Power BI Dashboard → Business Insights**
+
+---
+
+## Dataset
+
+The dataset used in this project was obtained from Kaggle and contains historical real estate listings from Saudi Arabia.
+
+- **Source:** Kaggle
+- **Data period:** 2014–2022
+- **Records analyzed:** 45,890 listings
+- **Columns:** 22
+- **Important note:** The dataset contains historical listing data and does not represent current Saudi real estate market conditions.
+
+The dashboard displays **Data from: 2014–2022** to clarify the period covered by the analysis.
+
+> Add the original Kaggle dataset link here when available.
 
 ---
 
@@ -25,16 +41,16 @@ The project demonstrates a complete analytics workflow:
 
 ### 1. Data Cleaning & Preparation
 
-The raw real estate dataset was explored, cleaned, and prepared using Python and Pandas.
+The real estate dataset was explored, cleaned, and prepared using Python and Pandas.
 
 Main tasks included:
 
-- Reviewing the dataset structure
+- Reviewing the dataset structure and data quality
 - Checking missing values
-- Standardizing data types
+- Standardizing column names and data types
 - Cleaning inconsistent values
-- Creating analytical columns
-- Preparing the final dataset for MySQL and Power BI
+- Preparing the dataset for MySQL and Power BI
+- Creating analytical columns for time-based and pricing analysis
 
 Created features included:
 
@@ -75,17 +91,30 @@ SQL/analysis_queries.sql
 
 The Power BI dashboard contains three interactive analytical pages.
 
-Features include:
+Dashboard features include:
 
-- Page navigation
+- Unified page navigation
 - Interactive slicers
 - Reset filter buttons
-- Report-page tooltips
 - Dynamic KPI values
-- Key market insights
-- Last refresh date
+- Data-period indicator
+- Report-page tooltips
+- Tooltip-based key insights
 - Hidden tooltip pages
 - Key Influencers visual
+- Interactive filtering and cross-highlighting
+
+### Tooltip-Based Insights
+
+Each main dashboard page uses a dedicated report-page tooltip.
+
+When the user hovers over supported charts, the tooltip displays:
+
+- Context-specific KPI values for the selected data point
+- Key analytical insights related to the dashboard page
+- Supporting metrics without taking additional space on the main report canvas
+
+The key insights are presented through tooltips to keep the dashboard clean while still providing deeper analysis.
 
 ---
 
@@ -106,6 +135,7 @@ It includes:
 - Listings Growth by Year
 - Property Price Distribution
 - Top Cities by Average Price
+- Tooltip insights summarizing major market patterns
 
 ![Overview Dashboard](Images/Overview.png)
 
@@ -123,6 +153,7 @@ It includes:
 - Median Price by Area Band
 - City Filter
 - Interactive Tooltips
+- Tooltip insights highlighting leading cities and districts
 
 ![City Analysis Dashboard](Images/City_Analysis.png)
 
@@ -140,6 +171,7 @@ It includes:
 - Listings and Median Price per Square Meter by Property Age
 - Property Category Filter
 - Key Influencers Analysis
+- Tooltip insights summarizing property-type and listing-type patterns
 
 ![Property Analysis Dashboard](Images/Property_Analysis.png)
 
@@ -147,12 +179,14 @@ It includes:
 
 ## Key Insights
 
-- Riyadh has the highest number of real estate listings in the dataset.
+The dashboard tooltips surface key findings such as:
+
+- Riyadh has the highest number of real estate listings.
 - Land is the most listed property type.
-- Sale listings represent the majority of the market.
+- Sale listings represent the majority of the dataset.
 - Property prices vary considerably by city, district, property type, and property size.
-- Property characteristics and location strongly influence price per square meter.
-- Listing activity increased significantly during the later years of the dataset.
+- Location and property characteristics strongly influence price per square meter.
+- Listing activity changed significantly across the 2014–2022 data period.
 
 ---
 
@@ -185,11 +219,20 @@ Saudi-Real-Estate-Analytics/
 
 ## How to Use This Project
 
-1. Open the notebook inside the `Notebook` folder.
-2. Run all cells to review the data-cleaning process.
-3. Review the SQL queries inside the `SQL` folder.
-4. Open the Power BI file inside the `Dashboard` folder.
-5. Use the page navigation, slicers, reset buttons, and tooltips to explore the dashboard.
+1. Open `Notebook/data_cleaning.ipynb` to review the Python data-cleaning workflow.
+2. Review `SQL/analysis_queries.sql` to explore the MySQL analysis.
+3. Open `Dashboard/Saudi_Real_Estate_Analytics.pbix` using Power BI Desktop.
+4. Navigate between the three dashboard pages.
+5. Use the slicers and reset buttons to explore filtered views.
+6. Hover over charts to display the report-page tooltips and key insights.
+
+---
+
+## Data Disclaimer
+
+This project is intended for portfolio and educational purposes.
+
+The findings are based on a historical Kaggle dataset covering **2014–2022**. Listing prices represent advertised prices in the dataset and should not be interpreted as current market prices or completed transaction values.
 
 ---
 
